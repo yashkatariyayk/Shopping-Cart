@@ -1,0 +1,54 @@
+
+
+
+<table class="table table-hover">
+  
+  
+    <thead class="table-primary">
+      <tr>
+        <th>SrNo</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+  
+    <tbody >
+      <tr *ngFor="let product of Products; let i = index">
+         
+          <th scope="row">{{ i + 1 }}</th> 
+          <td><img  height="100" width="100"  [src]='product.Image ' class="mr-3"></td>
+          <td>{{product.Name}}</td>
+          <td>{{ product.Quantity }}</td>
+          <td>{{ product.Price }}</td>
+          <td>{{product.Quantity * product.Price}}</td>
+        
+        <nav>
+          <button class="btn btn-primary" [routerLink]="['/edit', product._id]">
+            Edit
+          </button>
+          <button class="btn btn-danger" (click)="deleteProduct(product._id )"  routerLink="/product">
+            Delete
+          </button>
+        </nav>        
+      </tr>
+
+          <tr>
+            <td colspan="5" align="right" >GrandTotal:</td>
+            <th >{{total}}</th>
+          </tr>
+          
+    </tbody>
+  </table>
+
+
+  <div *ngIf="!Products || Products.length === 0" class="alert alert-danger" role="alert" style="text-align: center;">
+    <p>Your Cart is Empty</p>
+  </div>
+
+
+  <router-outlet></router-outlet>
+  

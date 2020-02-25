@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+        <form [formGroup]="form" >     
+
+        <!-- Name -->
+        <div class="form-group ">
+          <label class="col-md-4">Name:</label>
+          <input class="form-control" placeholder="Name" formControlName="Name" #Name>
+        </div>
+
+        <!-- Price -->
+        <div class="form-group ">
+          <label class="col-md-4">Price:</label>
+            <input class="form-control" placeholder="Price" formControlName="Price" #Price>
+          </div>
+
+          <!-- Quantity -->
+          <div class="form-group ">
+            <label class="col-md-4">Quantity:</label>
+            <input class="form-control" placeholder="Quantity" formControlName="Quantity" #Quantity>
+          </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+          <button class="btn btn-primary"
+          (click)="updateProduct() " [disabled]="form.invalid" >Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

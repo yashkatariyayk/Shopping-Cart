@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form">
+        <!-- File Input -->
+        <div class="form-group">
+          <input
+            height="150"
+            width="150"
+            crop="crop"
+            type="file"
+            (change)="uploadFile($event)"
+            #Image
+          />
+        </div>
+
+        <!-- Name -->
+        <div class="form-group ">
+          <label class="col-md-4">Name:</label>
+          <input
+            class="form-control"
+            placeholder="Name"
+            formControlName="Name"
+            #Name
+            [ngClass]="{ 'is-invalid': submitted &amp;&amp; form.controls.Name.errors }"
+          />
+        </div>
+
+        <!-- Price -->
+        <div class="form-group ">
+          <label class="col-md-4">Price:</label>
+          <input
+            class="form-control"
+            placeholder="Price"
+            formControlName="Price"
+            #Price
+          />
+        </div>
+
+        <!-- Quantity -->
+        <div class="form-group ">
+          <label class="col-md-4">Quantity:</label>
+          <input
+            class="form-control"
+            placeholder="Quantity"
+            formControlName="Quantity"
+            #Quantity
+          />
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+          <button
+            class="btn btn-primary"
+            (click)="addProduct()"
+            routerLink="/product"
+            [disabled]="form.invalid"
+          >
+            ADD
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
